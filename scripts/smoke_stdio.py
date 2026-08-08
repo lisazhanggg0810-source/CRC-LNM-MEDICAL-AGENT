@@ -19,7 +19,7 @@ from mcp.client.stdio import stdio_client
 
 EXPECTED_TOOLS = {"healthcheck", "describe_deployment"}
 PUBLISHED_UVX_PACKAGE = "crc-lnm-medical-agent-hosted"
-EXPECTED_VERSION = "1.0.18"
+EXPECTED_VERSION = "1.0.19"
 
 
 def structured(result: Any) -> dict[str, object]:

@@ -17,7 +17,7 @@ def test_model_info_reports_selected_single_model_without_torch(monkeypatch) -> 
     monkeypatch.setattr(builtins, "__import__", guarded_import)
     runtime = RuntimeProvider()
     data = runtime.metadata.get_model_info()
-    assert data["package_version"] == "1.0.18"
+    assert data["package_version"] == "1.0.19"
     assert data["deployment_profile"] == "single_model_modelscope"
     assert data["member_count"] == 1
     assert data["ensemble_enabled"] is False

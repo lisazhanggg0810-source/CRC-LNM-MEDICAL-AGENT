@@ -1,13 +1,13 @@
-# CRC-LNM Medical Agent 1.0.18
+# CRC-LNM Medical Agent 1.0.19
 
 面向 ModelScope 托管 STDIO 的完整懒加载纯 NumPy 单模型版本。一个 console script、一个进程内注册六个医学工具；initialize 和 tools/list 不读取模型参数或展开病例。第一次 `crc_lnm_predict_multimodal` 调用校验并加载唯一的 `seed_2024` NumPy runtime asset，后续预测复用同一实例。默认安装不依赖 PyTorch、NVIDIA 或 CUDA 包。
 
-## 更新说明 (v1.0.18)
+## 更新说明 (v1.0.19)
 
 - **修复魔搭部署失败**：魔搭/uvx 要求包名与 console script 同名才能通过 `uvx <包名>` 启动；已将 console script 从 `crc-lnm-medical-agent` 改为 `crc-lnm-medical-agent-hosted`，与包名一致
-- **配置改为无版本号**：魔搭对 `uvx <包名>@版本` 形式无法识别，`modelscope-mcp.json` 与 README 配置统一使用不带版本号的 `crc-lnm-medical-agent-hosted`（新包唯一版本 1.0.18）
-- **版本升级到 1.0.18**：PyPI 上 1.0.17 已存在（旧 console script），需重新发布 1.0.18
-- **新 PyPI 包名**：`crc-lnm-medical-agent-hosted`，最新版本 1.0.18
+- **配置改为无版本号**：魔搭对 `uvx <包名>@版本` 形式无法识别，`modelscope-mcp.json` 与 README 配置统一使用不带版本号的 `crc-lnm-medical-agent-hosted`（新包唯一版本 1.0.19）
+- **版本升级到 1.0.19**：PyPI 上 1.0.18 已存在（旧 console script），需重新发布 1.0.19
+- **新 PyPI 包名**：`crc-lnm-medical-agent-hosted`，最新版本 1.0.19
 
 ## 功能列表
 

@@ -78,7 +78,7 @@ def test_runtime_tests_do_not_require_torch_reference() -> None:
 
 
 def test_github_ci_does_not_install_torch() -> None:
-    workflow = (ROOT / ".github/workflows/release-matrix-1.0.18.yml").read_text("utf-8")
+    workflow = (ROOT / ".github/workflows/release-matrix-1.0.19.yml").read_text("utf-8")
     lowered = workflow.lower()
     assert "pip install torch" not in lowered
     assert "conversion" not in lowered

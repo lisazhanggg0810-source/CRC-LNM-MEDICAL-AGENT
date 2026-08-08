@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "crc-lnm-medical-agent-hosted"
-version = "1.0.18"
+version = "1.0.19"
 description = "Full-lazy single-model CRC-LNM research-assistance MCP for ModelScope STDIO"
 readme = "README.md"
 requires-python = ">=3.10"

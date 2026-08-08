@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.0.19 - 2026-08-08
+
+- Restored the complete NumPy runtime and preprocessing assets.
+- Restored multimodal prediction and report generation.
+- Removed runtime checksum enforcement while retaining structural array validation.
+- Fixed the required empty input for the model-information STDIO smoke call.
+
+
+
 ## 1.0.18 - 2026-08-08
 
 - 修复魔搭部署失败根因：uvx 要求包名与 console script 同名才能通过 `uvx <包名>` 启动；已将 console script 从 `crc-lnm-medical-agent` 改为 `crc-lnm-medical-agent-twomeme-17`，与包名一致。

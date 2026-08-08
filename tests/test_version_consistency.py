@@ -12,9 +12,9 @@ except ModuleNotFoundError:  # Python 3.10
 ROOT = Path(__file__).resolve().parents[1]
 
 
-def test_project_and_deployment_manifest_are_version_1_0_18() -> None:
+def test_project_and_deployment_manifest_are_version_1_0_19() -> None:
     project = tomllib.loads((ROOT / "pyproject.toml").read_text("utf-8"))["project"]
-    assert project["version"] == "1.0.18"
+    assert project["version"] == "1.0.19"
     manifest = __import__("json").loads(
         (ROOT / "src/crc_lnm_mcp/assets/model/deployment_manifest.json").read_text("utf-8")
     )

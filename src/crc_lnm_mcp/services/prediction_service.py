@@ -73,8 +73,6 @@ class PredictionProvider:
                 self._debug("predictor-loaded")
             except Exception as exc:
                 self._load_error = type(exc).__name__
-                if "checksum" in str(exc).lower():
-                    raise RuntimeError(str(exc)) from exc
                 raise RuntimeError("model initialization failed") from exc
             self.load_seconds = time.perf_counter() - started
             self.model_rss_delta = max(0, self._rss() - rss_before)

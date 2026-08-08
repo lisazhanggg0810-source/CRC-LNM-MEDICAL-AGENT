@@ -208,7 +208,7 @@ def main() -> int:
     preprocessing_checksum = str(manifest["payload_sha256"]["preprocessing.npz"])
     ordering_checksum = feature_order_sha256(schema)
     selection = {
-        "package_target_version": "1.0.18",
+        "package_target_version": "1.0.19",
         "selection_dataset": "demo_case_001",
         "selection_dataset_case_count": 1,
         "selection_method": "minimum_mae_to_ensemble",

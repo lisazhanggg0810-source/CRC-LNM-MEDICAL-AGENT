@@ -58,7 +58,7 @@ def register(mcp: Any, runtime: RuntimeProvider) -> None:
                 },
             ],
             "provenance": {
-                "service_version": "1.0.18",
+                "service_version": "1.0.19",
                 "model_version": data["selected_model_id"],
                 "model_schema_version": data["model_schema_version"],
                 "model_feature_order_sha256": data["feature_order_sha256"],

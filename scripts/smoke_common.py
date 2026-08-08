@@ -150,7 +150,7 @@ async def run_smoke(
                     report: dict[str, Any] | None = None
 
                     if target in {1, 7}:
-                        model_info = await call(TOOLS[0], {**base})
+                        model_info = await call(TOOLS[0], {**base, "input": {}})
                     if target in {2, 3, 4, 5, 6, 7}:
                         qc = await call(
                             TOOLS[1],

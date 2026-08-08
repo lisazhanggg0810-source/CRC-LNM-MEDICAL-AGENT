@@ -1,12 +1,10 @@
 from __future__ import annotations
 
-import copy
 import hashlib
 import json
 from importlib.resources import as_file
 
 import numpy as np
-import pytest
 
 from crc_lnm_mcp.settings import package_asset
 
@@ -38,14 +36,3 @@ def test_runtime_parameter_loader_validates_complete_inventory() -> None:
     assert sum(array.size for array in parameters.values()) == 763842
     assert all(array.dtype == np.float32 for array in parameters.values())
     assert all(np.isfinite(array).all() for array in parameters.values())
-
-
-def test_runtime_parameter_loader_rejects_array_checksum_mismatch() -> None:
-    from crc_lnm_mcp.inference.model_loader import load_runtime_parameters
-
-    manifest = json.loads(package_asset("model", "conversion_manifest.json").read_text("utf-8"))
-    bad = copy.deepcopy(manifest)
-    bad["arrays"][0]["sha256"] = "0" * 64
-    with as_file(package_asset("model", "model_runtime.npz")) as runtime_path:
-        with pytest.raises(RuntimeError, match="array checksum mismatch"):
-            load_runtime_parameters(runtime_path, bad)

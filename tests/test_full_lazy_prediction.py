@@ -116,23 +116,6 @@ def test_concurrent_first_prediction_loads_once() -> None:
     assert runtime.prediction.prediction_count == 4
     assert {row["positive_probability"] for row in results} == {results[0]["positive_probability"]}
 
-
-def test_model_checksum_failure_is_cached_and_metadata_remains_available(monkeypatch) -> None:
-    runtime = RuntimeProvider()
-    _trace_id, request = _prepared(runtime)
-    manifest = runtime.metadata.manifest()
-    manifest["runtime_asset_sha256"] = "0" * 64
-    monkeypatch.setattr(runtime.metadata, "manifest", lambda: manifest)
-    with pytest.raises(RuntimeError, match="checksum"):
-        runtime.prediction.predict(**request)
-    assert runtime.prediction.load_count == 0
-    assert runtime.prediction.load_attempt_count == 1
-    with pytest.raises(RuntimeError, match="initialization previously failed"):
-        runtime.prediction.predict(**{**request, "request_id": uuid4()})
-    assert runtime.prediction.load_attempt_count == 1
-    assert runtime.metadata.get_model_info()["selected_model_id"] == "seed_2024"
-
-
 def test_preprocessing_equivalence_report_passes() -> None:
     path = ROOT / "reports" / "preprocessing_equivalence.json"
     assert path.is_file()

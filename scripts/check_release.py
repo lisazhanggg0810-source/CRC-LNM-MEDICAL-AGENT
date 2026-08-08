@@ -1,4 +1,4 @@
-"""Fail-fast source and wheel gates for the full-lazy 1.0.18 release."""
+"""Fail-fast source and wheel gates for the full-lazy 1.0.19 release."""
 
 from __future__ import annotations
 
@@ -18,7 +18,7 @@ except ModuleNotFoundError:
 
 ROOT = Path(__file__).resolve().parents[1]
 PACKAGE = "crc-lnm-medical-agent-hosted"
-VERSION = "1.0.18"
+VERSION = "1.0.19"
 DEPENDENCIES = [
     "fastmcp==2.14.7",
     "pydantic==2.13.4",
@@ -36,7 +36,7 @@ SOURCE_ARCHIVE = ROOT / f"{PACKAGE}-{VERSION}-source.zip"
 SOURCE_PREFIX = f"{PACKAGE}-{VERSION}-source/"
 SOURCE_REQUIRED = {
     ".gitignore",
-    ".github/workflows/release-matrix-1.0.18.yml",
+    ".github/workflows/release-matrix-1.0.19.yml",
     "CHANGELOG.md",
     "MANIFEST.in",
     "README.md",
@@ -97,7 +97,7 @@ def main() -> int:
     assert project["version"] == VERSION
     assert project["dependencies"] == DEPENDENCIES
     expected_config = {
-        "mcpServers": {PACKAGE: {"command": "uvx", "args": [f"{PACKAGE}@{VERSION}"]}}
+        "mcpServers": {PACKAGE: {"command": "uvx", "args": [PACKAGE]}}
     }
     assert json.loads((ROOT / "modelscope-mcp.json").read_text("utf-8")) == expected_config
 

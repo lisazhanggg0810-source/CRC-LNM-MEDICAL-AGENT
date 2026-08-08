@@ -31,7 +31,7 @@
   "model_config_sha256": "8944e0ebc340e8adbf3379c9881abb6f57c27ef9f23acd80320069e3b703447b",
   "model_schema_version": "1.0.0",
   "original_ensemble_member_count": 5,
-  "package_version": "1.0.18",
+  "package_version": "1.0.19",
   "pathology_feature_count": 768,
   "preprocessing_file": "preprocessing.npz",
   "preprocessing_sha256": "9867c7e28ad7df2a4f945f9f8ce8771f1683297c889a5597e1b186537f7bb65a",

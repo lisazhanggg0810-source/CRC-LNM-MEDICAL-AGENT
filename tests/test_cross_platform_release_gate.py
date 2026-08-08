@@ -96,7 +96,7 @@ def test_windows_verifier_emits_exact_pass_marker_only_at_end() -> None:
 
 
 def test_github_actions_has_six_wheel_only_cells_and_artifacts() -> None:
-    source = (ROOT / ".github/workflows/release-matrix-1.0.18.yml").read_text("utf-8")
+    source = (ROOT / ".github/workflows/release-matrix-1.0.19.yml").read_text("utf-8")
     for marker in (
         "ubuntu-latest",
         "windows-latest",
