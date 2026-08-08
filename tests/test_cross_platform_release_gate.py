@@ -22,7 +22,7 @@ SMOKES = [
 def test_default_command_uses_python_scripts_directory(monkeypatch, tmp_path) -> None:
     scripts_dir = tmp_path / "Scripts"
     scripts_dir.mkdir()
-    command = scripts_dir / "crc-lnm-medical-agent-hosted.exe"
+    command = scripts_dir / "crc-lnm-medical-agent.exe"
     command.write_bytes(b"")
     monkeypatch.setattr(published_style.shutil, "which", lambda _name: None)
     monkeypatch.setattr(published_style.sysconfig, "get_path", lambda name: str(scripts_dir))

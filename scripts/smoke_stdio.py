@@ -18,7 +18,7 @@ from mcp import ClientSession, StdioServerParameters
 from mcp.client.stdio import stdio_client
 
 EXPECTED_TOOLS = {"healthcheck", "describe_deployment"}
-PUBLISHED_UVX_PACKAGE = "crc-lnm-medical-agent-hosted"
+PUBLISHED_UVX_PACKAGE = "crc-lnm-medical-agent"
 EXPECTED_VERSION = "1.0.19"
 
 

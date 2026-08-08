@@ -25,16 +25,16 @@ EXPECTED_PROBABILITY = 0.5726384520530701
 
 
 def _default_command() -> str:
-    names = ["crc-lnm-medical-agent-hosted"]
+    names = ["crc-lnm-medical-agent"]
     if sys.platform == "win32":
-        names.append("crc-lnm-medical-agent-hosted.exe")
+        names.append("crc-lnm-medical-agent.exe")
     for name in names:
         found = shutil.which(name)
         if found:
             return str(Path(found).resolve())
 
     scripts_dir = Path(sysconfig.get_path("scripts"))
-    filename = "crc-lnm-medical-agent-hosted.exe" if sys.platform == "win32" else names[0]
+    filename = "crc-lnm-medical-agent.exe" if sys.platform == "win32" else names[0]
     command = (scripts_dir / filename).resolve()
     if command.is_file():
         return str(command)

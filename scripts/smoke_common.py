@@ -43,7 +43,7 @@ def _structured(result: Any) -> dict[str, Any]:
 
 
 def _default_command() -> str:
-    executable = Path(os.sys.executable).with_name("crc-lnm-medical-agent-hosted.exe")
+    executable = Path(os.sys.executable).with_name("crc-lnm-medical-agent.exe")
     if not executable.is_file():
         raise FileNotFoundError(f"formal console script is missing: {executable}")
     return str(executable)

@@ -4,10 +4,10 @@
 
 ## 更新说明 (v1.0.19)
 
-- **修复魔搭部署失败**：魔搭/uvx 要求包名与 console script 同名才能通过 `uvx <包名>` 启动；已将 console script 从 `crc-lnm-medical-agent` 改为 `crc-lnm-medical-agent-hosted`，与包名一致
-- **配置改为无版本号**：魔搭对 `uvx <包名>@版本` 形式无法识别，`modelscope-mcp.json` 与 README 配置统一使用不带版本号的 `crc-lnm-medical-agent-hosted`（新包唯一版本 1.0.19）
-- **版本升级到 1.0.19**：PyPI 上 1.0.18 已存在（旧 console script），需重新发布 1.0.19
-- **新 PyPI 包名**：`crc-lnm-medical-agent-hosted`，最新版本 1.0.19
+- **发布到原 PyPI 项目**：发行包名称统一为 `crc-lnm-medical-agent`。
+- **console script 与包名一致**：正式启动命令统一为 `crc-lnm-medical-agent`。
+- **版本升级到 1.0.19**：包含已修复的 NumPy 模型和预处理资产。
+- **ModelScope 配置同步**：使用 `uvx crc-lnm-medical-agent` 启动服务。
 
 ## 功能列表
 
@@ -25,10 +25,10 @@
 ```json
 {
   "mcpServers": {
-    "crc-lnm-medical-agent-hosted": {
+    "crc-lnm-medical-agent": {
       "command": "uvx",
       "args": [
-        "crc-lnm-medical-agent-hosted"
+        "crc-lnm-medical-agent"
       ]
     }
   }

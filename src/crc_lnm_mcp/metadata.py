@@ -2,7 +2,7 @@
 
 from importlib.metadata import PackageNotFoundError, version
 
-PACKAGE_NAME = "crc-lnm-medical-agent-hosted"
+PACKAGE_NAME = "crc-lnm-medical-agent"
 
 
 def package_version() -> str:

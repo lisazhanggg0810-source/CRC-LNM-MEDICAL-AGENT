@@ -17,7 +17,7 @@ except ModuleNotFoundError:
 
 
 ROOT = Path(__file__).resolve().parents[1]
-PACKAGE = "crc-lnm-medical-agent-hosted"
+PACKAGE = "crc-lnm-medical-agent"
 VERSION = "1.0.19"
 DEPENDENCIES = [
     "fastmcp==2.14.7",

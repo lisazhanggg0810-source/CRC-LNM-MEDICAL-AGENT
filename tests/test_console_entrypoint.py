@@ -20,7 +20,7 @@ def test_pyproject_has_one_console_script_and_audited_runtime_dependencies() -> 
         "pydantic==2.13.4",
         "numpy==2.1.3",
     ]
-    assert project["scripts"] == {"crc-lnm-medical-agent-hosted": "crc_lnm_mcp.server:run"}
+    assert project["scripts"] == {"crc-lnm-medical-agent": "crc_lnm_mcp.server:run"}
 
 
 def test_main_module_only_imports_and_calls_run() -> None:

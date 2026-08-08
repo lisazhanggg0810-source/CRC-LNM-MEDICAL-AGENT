@@ -27,7 +27,7 @@ jobs:
       - uses: actions/upload-artifact@v4
         with:
           name: crc-lnm-1.0.19-wheel
-          path: dist/crc_lnm_medical_agent_hosted-1.0.19-py3-none-any.whl
+          path: dist/crc_lnm_medical_agent-1.0.19-py3-none-any.whl
 
   wheel-only-matrix:
     needs: build-wheel
@@ -49,13 +49,13 @@ jobs:
       - name: Install final wheel, never editable
         shell: bash
         run: |
-          python -m pip install dist/crc_lnm_medical_agent_hosted-1.0.19-py3-none-any.whl pytest psutil
+          python -m pip install dist/crc_lnm_medical_agent-1.0.19-py3-none-any.whl pytest psutil
           python -m pip check
           python -c "import importlib.util; assert importlib.util.find_spec('torch') is None"
       - name: Verify installed package and locked runtime
         shell: bash
         env:
-          CANARY_WHEEL: dist/crc_lnm_medical_agent_hosted-1.0.19-py3-none-any.whl
+          CANARY_WHEEL: dist/crc_lnm_medical_agent-1.0.19-py3-none-any.whl
         run: |
           cd "${RUNNER_TEMP}"
           python -I -B -c "import crc_lnm_mcp; assert 'site-packages' in crc_lnm_mcp.__file__; print(crc_lnm_mcp.__file__)"
@@ -66,7 +66,7 @@ jobs:
         shell: bash
         run: |
           python scripts/smoke_published_style_local_wheel.py \
-            --wheel dist/crc_lnm_medical_agent_hosted-1.0.19-py3-none-any.whl \
+            --wheel dist/crc_lnm_medical_agent-1.0.19-py3-none-any.whl \
             --output-dir "reports/matrix/${{ matrix.os }}-py${{ matrix.python-version }}" \
             --output "reports/matrix/${{ matrix.os }}-py${{ matrix.python-version }}.json"
       - uses: actions/upload-artifact@v4

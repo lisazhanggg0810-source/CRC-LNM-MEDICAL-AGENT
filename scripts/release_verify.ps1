@@ -45,7 +45,7 @@ try {
     Remove-WorkspaceTree (Join-Path $Root "build")
     Remove-WorkspaceTree (Join-Path $Root "dist")
     Remove-WorkspaceTree (Join-Path $Root ".pytest_cache")
-    foreach ($OldReleaseFile in @("crc-lnm-medical-agent-hosted-$Version-source.zip", "RELEASE_CHECKSUMS.sha256")) {
+    foreach ($OldReleaseFile in @("crc-lnm-medical-agent-$Version-source.zip", "RELEASE_CHECKSUMS.sha256")) {
         $OldPath = Join-Path $Root $OldReleaseFile
         if (Test-Path -LiteralPath $OldPath) { Remove-Item -LiteralPath $OldPath -Force }
     }
@@ -79,7 +79,7 @@ try {
     & $VenvPython -m pip install --disable-pip-version-check --force-reinstall $Wheel[0].FullName pytest psutil
     if ($LASTEXITCODE -ne 0) { throw "Wheel-only installation failed" }
     $env:CANARY_INSTALLED = "1"
-    $env:CANARY_CONSOLE = Join-Path $Venv "Scripts/crc-lnm-medical-agent-hosted.exe"
+    $env:CANARY_CONSOLE = Join-Path $Venv "Scripts/crc-lnm-medical-agent.exe"
     & $VenvPython -m pytest -q
     if ($LASTEXITCODE -ne 0) { throw "Wheel-only test suite failed" }
 
@@ -105,7 +105,7 @@ try {
             Where-Object { $_.Extension -in @(".py", ".ps1", ".md") } |
             Copy-Item -Destination $Destination
     }
-    $SourceZip = Join-Path $Root "crc-lnm-medical-agent-hosted-$Version-source.zip"
+    $SourceZip = Join-Path $Root "crc-lnm-medical-agent-$Version-source.zip"
     Compress-Archive -Path (Join-Path $Stage "*") -DestinationPath $SourceZip -CompressionLevel Optimal
     Add-Type -AssemblyName System.IO.Compression.FileSystem
     $Archive = [IO.Compression.ZipFile]::OpenRead($SourceZip)

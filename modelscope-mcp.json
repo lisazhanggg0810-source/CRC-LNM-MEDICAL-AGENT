@@ -1,9 +1,9 @@
 {
   "mcpServers": {
-    "crc-lnm-medical-agent-hosted": {
+    "crc-lnm-medical-agent": {
       "command": "uvx",
       "args": [
-        "crc-lnm-medical-agent-hosted"
+        "crc-lnm-medical-agent"
       ]
     }
   }
